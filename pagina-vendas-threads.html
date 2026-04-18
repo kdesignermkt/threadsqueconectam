@@ -1,0 +1,193 @@
+</> HTML 
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threads que Conectam — E-book</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0A0A0A; color: #CCCCCC; line-height: 1.7; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 640px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+  /* BADGE */
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; border: 1px solid #C2FF05; color: #C2FF05; margin-bottom: 1.4rem; }
+
+  /* HEADLINE */
+  h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 700; line-height: 1.15; color: #FFFFFF; margin-bottom: 1rem; }
+  h1 span { color: #C2FF05; }
+  .subline { font-size: 16px; color: #999; line-height: 1.75; margin-bottom: 2rem; }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 1px solid #1F1F1F; margin: 2rem 0; }
+
+  /* PAIN */
+  .pain { border-left: 3px solid #C2FF05; padding: 1rem 1.2rem; background: #0D1F14; border-radius: 0 8px 8px 0; margin-bottom: 2rem; }
+  .pain p { font-size: 14px; line-height: 1.75; color: #AAAAAA; }
+  .pain p + p { margin-top: 0.6rem; }
+
+  /* SECTION LABEL */
+  .slabel { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 0.9rem; }
+
+  /* PROMISE GRID */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 2rem; }
+  .card { background: #111; border: 1px solid #1F1F1F; border-radius: 10px; padding: 1rem; }
+  .card .ic { font-size: 18px; margin-bottom: 8px; }
+  .card .ct { font-size: 13px; font-weight: 600; color: #FFF; margin-bottom: 4px; }
+  .card .cd { font-size: 12px; color: #777; line-height: 1.5; }
+
+  /* FOR WHO */
+  .forwho { background: #111; border: 1px solid #1F1F1F; border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 2rem; }
+  .forwho .ft { font-size: 13px; font-weight: 600; color: #FFF; margin-bottom: 0.8rem; }
+  .fw { display: flex; gap: 8px; margin-bottom: 7px; align-items: flex-start; }
+  .fw .ck { color: #C2FF05; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+  .fw span { font-size: 13px; color: #999; line-height: 1.5; }
+
+  /* INSIDE */
+  .inside-item { display: flex; gap: 14px; padding: 0.8rem 0; border-bottom: 1px solid #1A1A1A; align-items: flex-start; }
+  .in { font-size: 11px; font-weight: 700; color: #C2FF05; min-width: 28px; margin-top: 2px; }
+  .it { font-size: 13px; color: #DDD; line-height: 1.5; }
+  .it small { color: #666; font-size: 12px; display: block; margin-top: 2px; }
+
+  /* QUOTE */
+  .quote { border-left: 3px solid #1A3D8F; padding: 1rem 1.2rem; background: #0D1020; border-radius: 0 8px 8px 0; margin: 2rem 0; }
+  .quote p { font-size: 14px; font-style: italic; color: #AAA; line-height: 1.75; }
+  .quote .qa { font-size: 12px; color: #555; margin-top: 8px; }
+
+  /* PRICE */
+  .price-box { background: #111; border: 1px solid #1F1F1F; border-radius: 12px; padding: 1.8rem 1.5rem; text-align: center; margin-bottom: 1rem; }
+  .price-old { font-size: 14px; color: #555; text-decoration: line-through; margin-bottom: 4px; }
+  .price-main { font-size: 42px; font-weight: 700; color: #FFF; margin-bottom: 4px; }
+  .price-main sup { font-size: 20px; vertical-align: super; }
+  .price-sub { font-size: 12px; color: #666; margin-bottom: 1.4rem; }
+  .cta { display: block; background: #C2FF05; color: #0A0A0A; font-size: 16px; font-weight: 700; padding: 15px 24px; border-radius: 8px; text-align: center; cursor: pointer; transition: opacity .15s; margin-bottom: 1rem; }
+  .cta:hover { opacity: 0.88; }
+  .guar { display: flex; gap: 10px; align-items: flex-start; }
+  .guar .gi { font-size: 18px; flex-shrink: 0; }
+  .guar p { font-size: 12px; color: #555; line-height: 1.6; }
+
+  /* FAQ */
+  .faq-item { padding: 1rem 0; border-bottom: 1px solid #1A1A1A; }
+  .fq { font-size: 14px; font-weight: 600; color: #DDD; margin-bottom: 5px; }
+  .fa { font-size: 13px; color: #777; line-height: 1.65; }
+
+  /* FINAL CTA */
+  .final { text-align: center; padding: 2rem 1.5rem; background: #111; border-radius: 12px; border: 1px solid #1F1F1F; margin-top: 2rem; }
+  .final p { font-size: 15px; color: #888; margin-bottom: 1.2rem; line-height: 1.75; }
+  .final strong { color: #FFF; }
+
+  /* TOP BAR */
+  .topbar { background: #C2FF05; color: #0A0A0A; text-align: center; font-size: 12px; font-weight: 700; padding: 10px; letter-spacing: 0.05em; }
+
+  @media (max-width: 480px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">🔥 LANÇAMENTO — Oferta por tempo limitado</div>
+
+<div class="wrap">
+
+  <div class="badge">E-book digital</div>
+
+  <h1>Threads que <span>Conectam</span>:<br>o guia que o mercado ainda não leu</h1>
+
+  <p class="subline">Aprenda a usar o algoritmo do Threads a seu favor, construir networking real e fechar contratos com pessoas que ainda não te conhecem — sem precisar de milhares de seguidores para começar.</p>
+
+  <div class="pain">
+    <p>Você provavelmente subestimou o Threads assim como todo mundo fez. Postou uma vez, não viu resultado e voltou para onde estava.</p>
+    <p>Enquanto isso, uma parte pequena de criadores, freelancers e consultores descobriu que o Threads ainda tem o que outras redes perderam: alcance orgânico real e conversas que viram negócio.</p>
+  </div>
+
+  <p class="slabel">O que você vai dominar</p>
+  <div class="grid">
+    <div class="card">
+      <div class="ic">⚡</div>
+      <div class="ct">Algoritmo e entrega</div>
+      <div class="cd">Os 4 sinais que determinam se seu post chega longe ou não</div>
+    </div>
+    <div class="card">
+      <div class="ic">🔗</div>
+      <div class="ct">Ecossistema Meta</div>
+      <div class="cd">Como Instagram e Facebook alimentam (ou travam) sua entrega</div>
+    </div>
+    <div class="card">
+      <div class="ic">🤝</div>
+      <div class="ct">Networking real</div>
+      <div class="cd">Método C.A.R.E. para criar conexões que viram oportunidades</div>
+    </div>
+    <div class="card">
+      <div class="ic">💬</div>
+      <div class="ct">Scripts prontos</div>
+      <div class="cd">Templates de DM para abordar clientes sem parecer vendedor</div>
+    </div>
+  </div>
+
+  <div class="forwho">
+    <div class="ft">Este e-book é para você se...</div>
+    <div class="fw"><span class="ck">✓</span><span>É freelancer ou prestador de serviço e quer atrair clientes sem depender só de indicação</span></div>
+    <div class="fw"><span class="ck">✓</span><span>Cria conteúdo e quer transformar audiência em receita</span></div>
+    <div class="fw"><span class="ck">✓</span><span>É empreendedor ou consultor buscando parcerias e novos contratos</span></div>
+    <div class="fw"><span class="ck">✓</span><span>Tem presença no Threads mas nunca teve uma estratégia de verdade</span></div>
+  </div>
+
+  <p class="slabel">O que está dentro</p>
+  <div style="margin-bottom:2rem">
+    <div class="inside-item"><div class="in">01</div><div class="it">Threads: a rede que o mercado dormiu<small>Por que a janela de oportunidade ainda está aberta</small></div></div>
+    <div class="inside-item"><div class="in">02</div><div class="it">O ecossistema Meta e os 4 sinais do algoritmo<small>Engajamento imediato, retenção, comentários e relação entre perfis</small></div></div>
+    <div class="inside-item"><div class="in">03</div><div class="it">Como fazer um post alcançar mais gente<small>Ganchos, escrita conversacional e timing certo</small></div></div>
+    <div class="inside-item"><div class="in">04–05</div><div class="it">Perfil que atrai + conteúdo que performa<small>Bio que converte e os 6 formatos que funcionam</small></div></div>
+    <div class="inside-item"><div class="in">06–07</div><div class="it">Networking e fechamento de contratos<small>Método C.A.R.E. + os 3 estágios do DM ao contrato</small></div></div>
+    <div class="inside-item"><div class="in">08</div><div class="it">Métricas e rotina de crescimento<small>O que medir e uma rotina de 30 min por dia</small></div></div>
+    <div class="inside-item"><div class="in">+</div><div class="it">Bônus: templates de posts, DMs e scripts<small>Prontos para adaptar ao seu nicho</small></div></div>
+  </div>
+
+  <div class="quote">
+    <p>"Mais alguém subestimou o Threads assim como eu, e agora percebeu que é uma das melhores redes pra fazer networking e fechar trabalhos por aqui?"</p>
+    <div class="qa">— O post que originou este e-book, com centenas de respostas confirmando</div>
+  </div>
+
+  <hr>
+
+  <div class="price-box">
+    <div class="price-old">De R$ 27,00</div>
+    <div class="price-main"><sup>R$</sup>12<span style="font-size:28px">,99</span></div>
+    <div class="price-sub">Acesso imediato · PDF · Pagamento único e seguro</div>
+    <a class="cta" href="SEU_LINK_KIWIFY_AQUI" target="_blank">Quero o e-book agora →</a>
+    <div class="guar">
+      <div class="gi">🔒</div>
+      <p>Compra 100% segura pela Kiwify. Se você não ficar satisfeito em 7 dias, devolvemos o valor integralmente — sem burocracia.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <p class="slabel">Perguntas frequentes</p>
+  <div style="margin-bottom:2rem">
+    <div class="faq-item">
+      <div class="fq">Preciso ter muitos seguidores para o e-book fazer sentido?</div>
+      <div class="fa">Não. O guia foi feito justamente para quem está começando ou tem presença pequena. As estratégias funcionam melhor quando aplicadas cedo.</div>
+    </div>
+    <div class="faq-item">
+      <div class="fq">Em quanto tempo vejo resultado?</div>
+      <div class="fa">O guia inclui um plano de 30 dias. A maioria das pessoas que aplica com consistência relata as primeiras conexões e oportunidades nas primeiras 2–3 semanas.</div>
+    </div>
+    <div class="faq-item">
+      <div class="fq">Como recebo o material após a compra?</div>
+      <div class="fa">Imediatamente após a confirmação do pagamento, você recebe o acesso por e-mail com o link para download do PDF.</div>
+    </div>
+  </div>
+
+  <div class="final">
+    <p>O mercado subestimou o Threads.<br><strong>Você acabou de parar de subestimar.</strong></p>
+    <a class="cta" href="SEU_LINK_KIWIFY_AQUI" target="_blank">Quero o e-book agora →</a>
+  </div>
+
+</div>
+</body>
+</html>
